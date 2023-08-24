@@ -18,35 +18,27 @@ final class DetailsViewController: UIViewController {
     private lazy var container: UIView = {
         let container = UIView()
         container.translatesAutoresizingMaskIntoConstraints = false
-        container.addSubview(titleView)
+        container.addSubview(titleLabel)
+        container.addSubview(marker)
         container.addSubview(stackView)
         return container
     }()
     
-    private lazy var titleView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .horizontal
-        stackView.alignment = .center
-        stackView.distribution = .fill
-        stackView.spacing = 8
-        stackView.addArrangedSubview(marker)
-        stackView.addArrangedSubview(titleLabel)
-        return stackView
-    }()
-    
     private lazy var marker: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = olympiad.level.color
-        view.layer.cornerRadius = 6
-        return view
+        let wrapper = UIView(frame: CGRect(x: 0, y: 0, width: 12, height: 24))
+        wrapper.translatesAutoresizingMaskIntoConstraints = false
+        let dot = UIView(frame: CGRect(x: 0, y: 6, width: 12, height: 12))
+        dot.translatesAutoresizingMaskIntoConstraints = false
+        dot.backgroundColor = olympiad.level.color
+        dot.layer.cornerRadius = 6
+        wrapper.addSubview(dot)
+        return wrapper
     }()
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = olympiad.name
+        label.text = olympiad.longName ?? olympiad.name
         label.font = UIFont.boldSystemFont(ofSize: 20)
         label.textAlignment = .center
         label.numberOfLines = 0
@@ -96,10 +88,14 @@ final class DetailsViewController: UIViewController {
             container.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             container.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             container.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            titleView.topAnchor.constraint(equalTo: container.topAnchor),
-            titleView.centerXAnchor.constraint(equalTo: container.centerXAnchor),
-            marker.heightAnchor.constraint(equalToConstant: 12),
+            titleLabel.topAnchor.constraint(equalTo: container.topAnchor),
+            titleLabel.centerXAnchor.constraint(equalTo: container.centerXAnchor),
+            titleLabel.leadingAnchor.constraint(greaterThanOrEqualTo: container.leadingAnchor, constant: 20),
+            titleLabel.trailingAnchor.constraint(lessThanOrEqualTo: container.trailingAnchor),
+            marker.heightAnchor.constraint(equalToConstant: 24),
             marker.widthAnchor.constraint(equalToConstant: 12),
+            marker.topAnchor.constraint(equalTo: titleLabel.topAnchor),
+            marker.trailingAnchor.constraint(equalTo: titleLabel.leadingAnchor, constant: -8),
             stackView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
             stackView.leadingAnchor.constraint(equalTo: container.leadingAnchor),
             stackView.trailingAnchor.constraint(equalTo: container.trailingAnchor),

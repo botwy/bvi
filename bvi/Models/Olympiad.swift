@@ -10,6 +10,7 @@ import Foundation
 struct Olympiad {
     let id: String
     let name: String
+    let longName: String?
     let level: Level
     let description: String
     let links: [Link]?
@@ -20,6 +21,7 @@ extension Olympiad {
         self.init(
             id: olympiadJson.id,
             name: olympiadJson.name,
+            longName: olympiadJson.longName,
             level: Level(rawValue: olympiadJson.level) ?? .unknown,
             description: olympiadJson.description,
             links: olympiadJson.links

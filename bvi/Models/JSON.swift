@@ -26,6 +26,7 @@ extension JSON {
         let id: String
         let subject: JSON.Subject
         let name: String
+        let longName: String?
         let level: Int
         let description: String
         let links: [Link]?

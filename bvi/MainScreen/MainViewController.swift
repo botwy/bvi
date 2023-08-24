@@ -48,10 +48,6 @@ final class MainViewController: UIViewController {
     
     private func setUpNavigation() {
         navigationItem.title = "Олимпиады, 11 класс"
-//        self.navigationController?.navigationBar.backgroundColor = UIColor(red: 0.2431372549, green: 0.7647058824, blue: 0.8392156863, alpha: 1)
-//        self.navigationController?.navigationBar.isTranslucent = false
-//        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-//        self.navigationController?.navigationBar.tintColor = .white
     }
     
     private func updateLayout(with size: CGSize) {
@@ -76,13 +72,8 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
-//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        return olympiadDataSource.getGroup(section: section).title
-//    }
-    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let group = olympiadDataSource.getGroup(section: section)
-       // let label = PaddingLabel(withInsets: 16, 16, 16, 16)
         let label = UILabel()
         label.text = group.title
         label.backgroundColor = UIColor(red: 0.2431372549, green: 0.7647058824, blue: 0.8392156863, alpha: 0.95)

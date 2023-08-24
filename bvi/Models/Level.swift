@@ -8,18 +8,21 @@
 import UIKit
 
 enum Level: Int {
-    case unknown = 0, first = 1, second, third
+    case unknown = -1, vsosh = 0, first = 1, second, third
     
     var title: String {
-        self == .unknown ? "" : "\(self.rawValue) уровень"
+        if self == .unknown {
+            return ""
+        }
+        return self == .vsosh ? "всош" : "\(self.rawValue) уровень"
     }
     
     var color: UIColor {
         switch self {
-        case .first: return .systemGreen
-      //  case .second: return UIColor(red: 0.2431372549, green: 0.7647058824, blue: 0.8392156863, alpha: 1)
-        case .second: return .systemBlue
-        case .third: return .systemOrange
+        case .vsosh: return .systemGreen
+        case .first: return .systemBlue
+        case .second: return .systemOrange
+        case .third: return .systemBrown
         case .unknown: return .clear
         }
     }

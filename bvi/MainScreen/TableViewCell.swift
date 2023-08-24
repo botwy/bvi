@@ -28,14 +28,6 @@ class TableViewCell: UITableViewCell {
         return label
     }()
     
-    private func getLevelColor(_ level: Int) -> UIColor {
-        switch level {
-        case 1: return .systemGreen
-        case 2: return UIColor(red: 0.2431372549, green: 0.7647058824, blue: 0.8392156863, alpha: 1)
-        case 3: return .systemOrange
-        default: return .systemGray
-        }
-    }
     let containerView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
