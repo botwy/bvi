@@ -47,7 +47,8 @@ final class MainViewController: UIViewController {
     }
     
     private func setUpNavigation() {
-        navigationItem.title = "Олимпиады, 11 класс"
+        navigationItem.title = "Олимпиады"
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     private func updateLayout(with size: CGSize) {
