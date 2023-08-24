@@ -123,12 +123,7 @@ final class DetailsViewController: UIViewController {
         linkView.textAlignment = .left
         linkView.isEditable = false
         linkView.sizeToFit()
-//        linkLabel.numberOfLines = 0
-//        linkLabel.lineBreakMode = .byWordWrapping
-//        linkLabel.isUserInteractionEnabled = true
-//        let urlTapRecognizer = URLTapGestureRecognizer(target: self, action: #selector(self.onLinkTap(sender:)))
-//        urlTapRecognizer.urlStr = link.urlStr
-//        linkLabel.addGestureRecognizer(urlTapRecognizer)
+
         return linkView
     }
     
