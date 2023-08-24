@@ -62,7 +62,6 @@ final class DetailsViewController: UIViewController {
         olympiad.links?.forEach {
             let linkView = createLinkView(link: $0)
             stackView.addArrangedSubview(linkView)
-            linkView.heightAnchor.constraint(equalToConstant: linkView.frame.height).isActive = true
         }
         stackView.addArrangedSubview(textView)
         return stackView
@@ -77,7 +76,6 @@ final class DetailsViewController: UIViewController {
             .htmlAttributedString()
             .with(font: .systemFont(ofSize: 20))
         textView.textAlignment = .left
-        textView.sizeToFit()
         return textView
     }()
     
@@ -122,8 +120,8 @@ final class DetailsViewController: UIViewController {
         linkView.font = UIFont.systemFont(ofSize: 17)
         linkView.textAlignment = .left
         linkView.isEditable = false
-        linkView.sizeToFit()
-
+        linkView.isScrollEnabled = false
+        
         return linkView
     }
     
