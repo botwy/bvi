@@ -77,14 +77,19 @@ final class DetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpNavigation()
         view.backgroundColor = .white
         view.addSubview(container)
         activateConstraints()
     }
     
+    private func setUpNavigation() {
+        navigationItem.largeTitleDisplayMode = .never
+    }
+    
     private func activateConstraints() {
         let constraints: [NSLayoutConstraint] = [
-            container.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0),
+            container.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 8),
             container.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             container.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             container.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
