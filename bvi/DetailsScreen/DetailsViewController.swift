@@ -89,7 +89,7 @@ final class DetailsViewController: UIViewController {
     
     private func activateConstraints() {
         let constraints: [NSLayoutConstraint] = [
-            container.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 8),
+            container.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
             container.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             container.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             container.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
